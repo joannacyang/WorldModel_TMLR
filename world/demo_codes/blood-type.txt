@@ -1,0 +1,13 @@
+    def get_demo_actions(self):
+        useful_info = self.useful_info[1]
+        # print(useful_info)
+
+        return [
+            "give Type {} {} blood (ID: 3) to patient (ID: 2)".format(
+                useful_info[0], useful_info[1]
+            ),
+            "take Type {} {} blood (ID: 3)".format(useful_info[0], useful_info[1]),
+            "give Type {} {} blood (ID: 3) to patient (ID: 2)".format(
+                useful_info[0], useful_info[1]
+            ),
+        ]

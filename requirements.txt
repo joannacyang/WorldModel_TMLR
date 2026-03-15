@@ -1,0 +1,7 @@
+openai>=1.0.0
+tiktoken
+httpx
+tenacity
+tqdm
+numpy
+torch

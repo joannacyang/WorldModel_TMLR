@@ -1,0 +1,114 @@
+    def get_demo_actions(self):
+        # demo_actions = [
+        #     "take white cube (ID: 5)",
+        #     "put white cube (ID: 5) in left side of the balance scale (ID: 3)",
+        #     "take blue cube (ID: 6)",
+        #     "put blue cube (ID: 6) in right side of the balance scale (ID: 4)",
+        #     "look",
+        #     "take white cube (ID: 5)",
+        #     "take yellow cube (ID: 7)",
+        #     "put yellow cube (ID: 7) in left side of the balance scale (ID: 3)",
+        #     "look",
+        #     "take blue cube (ID: 6)",
+        #     "put blue cube (ID: 6) in box (ID: 8)",
+        # ]
+
+        # sorted_items = sorted(self.useful_info, key=lambda x: x[1])
+
+        # for sorted_item in sorted_items:
+        demo_actions = [
+            "take {}".format(self.useful_info[0][0].name),
+            "put {} in left side of the balance scale (ID: 3)".format(
+                self.useful_info[0][0].name
+            ),
+            "take {}".format(self.useful_info[1][0].name),
+            "put {} in right side of the balance scale (ID: 4)".format(
+                self.useful_info[1][0].name
+            ),
+            "look",
+        ]
+
+        if len(self.useful_info) == 2:
+            if self.useful_info[0][1] > self.useful_info[1][1]:
+                # left is heavier
+
+                demo_actions.append("take {}".format(self.useful_info[0][0].name))
+                demo_actions.append(
+                    "put {} in {}".format(
+                        self.useful_info[0][0].name, self.answer_box.name
+                    )
+                )
+                return demo_actions
+            elif self.useful_info[0][1] < self.useful_info[1][1]:
+                # right is heavier
+                demo_actions.append("take {}".format(self.useful_info[1][0].name))
+                demo_actions.append(
+                    "put {} in {}".format(
+                        self.useful_info[1][0].name, self.answer_box.name
+                    )
+                )
+                return demo_actions
+            else:
+                demo_actions.append("take {}".format(self.useful_info[0][0].name))
+                demo_actions.append(
+                    "put {} in {}".format(
+                        self.useful_info[0][0].name, self.answer_box.name
+                    )
+                )
+
+                demo_actions.append("take {}".format(self.useful_info[1][0].name))
+                demo_actions.append(
+                    "put {} in {}".format(
+                        self.useful_info[1][0].name, self.answer_box.name
+                    )
+                )
+                return demo_actions
+
+        on_scale = [0, 1]
+        for i in range(2, len(self.useful_info)):
+            if self.useful_info[on_scale[0]][1] > self.useful_info[on_scale[1]][1]:
+                demo_actions += [
+                    "take {}".format(self.useful_info[on_scale[1]][0].name),
+                    "take {}".format(self.useful_info[i][0].name),
+                    "put {} in right side of the balance scale (ID: 4)".format(
+                        self.useful_info[i][0].name
+                    ),
+                    "look",
+                ]
+                on_scale[1] = i
+            else:
+                demo_actions += [
+                    "take {}".format(self.useful_info[on_scale[0]][0].name),
+                    "take {}".format(self.useful_info[i][0].name),
+                    "put {} in left side of the balance scale (ID: 3)".format(
+                        self.useful_info[i][0].name
+                    ),
+                    "look",
+                ]
+                on_scale[0] = i
+        max_weight = 0
+        if self.useful_info[on_scale[0]][1] > self.useful_info[on_scale[1]][1]:
+            demo_actions.append("take {}".format(self.useful_info[on_scale[0]][0].name))
+            demo_actions.append(
+                "put {} in {}".format(
+                    self.useful_info[on_scale[0]][0].name, self.answer_box.name
+                )
+            )
+            max_weight = self.useful_info[on_scale[0]][1]
+        else:
+            demo_actions.append("take {}".format(self.useful_info[on_scale[1]][0].name))
+            demo_actions.append(
+                "put {} in {}".format(
+                    self.useful_info[on_scale[1]][0].name, self.answer_box.name
+                )
+            )
+            max_weight = self.useful_info[on_scale[1]][1]
+
+        for cube, cube_mass in self.useful_info:
+            if cube_mass == max_weight:
+                demo_actions += [
+                    "take {}".format(cube.name),
+                    "put {} in {}".format(cube.name, self.answer_box.name),
+                ]
+
+        return demo_actions

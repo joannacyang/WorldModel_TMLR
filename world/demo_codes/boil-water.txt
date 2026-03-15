@@ -1,0 +1,17 @@
+    def get_demo_actions(self):
+        return [
+            "take pot (ID: 4)",
+            "put pot (ID: 4) in sink (ID: 3)",
+            "examine sink (ID: 3)",
+            "turn on sink (ID: 3)",
+            "examine sink (ID: 3)",
+            "turn off sink (ID: 3)",
+            "take pot (ID: 4)",
+            "look",
+            "put pot (ID: 4) on stove (ID: 2)",
+            "examine stove (ID: 2)",
+            "turn on stove (ID: 2)",
+            "examine stove (ID: 2)",
+            "examine stove (ID: 2)",
+            "examine stove (ID: 2)",
+        ]

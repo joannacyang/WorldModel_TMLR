@@ -1,0 +1,38 @@
+    def get_demo_actions(self):
+        target_color = self.useful_info[0][0]
+        paint_names = self.useful_info[1]
+        # mix_plan = game.color_mix_dict[useful_info]
+        # print(target_color)
+
+        color_dict = {
+            # "red": (1, 0, 0),
+            "orange": ["red", "yellow"],
+            # "yellow": (0, 1, 0),
+            "green": ["yellow", "blue"],
+            # "blue": (0, 0, 1),
+            "purple": ["red", "blue"],
+            "black": ["red", "yellow", "blue"],
+        }
+        paint_names_to_idx = {}
+        for paint_idx, paint_name in enumerate(paint_names):
+            paint_names_to_idx[paint_name] = paint_idx
+        color_mix_plan = color_dict[target_color]
+
+        # ["orange", "purple", "green", "black"]
+        demo_actions = []
+        to_idx = -1
+        for color_idx, color_mix in enumerate(color_mix_plan):
+            if color_idx == 0:
+                to_idx = paint_names_to_idx[color_mix]
+                continue
+            demo_actions.append(
+                "pour {} paint (ID: {}) in cup {} (ID: {})".format(
+                    color_mix,
+                    2 * (paint_names_to_idx[color_mix] + 1) + 1,
+                    to_idx,
+                    2 * (to_idx + 1),
+                )
+            )
+        demo_actions.append("mix cup {} (ID: {})".format(to_idx, 2 * (to_idx + 1)))
+
+        return demo_actions

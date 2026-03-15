@@ -1,0 +1,13 @@
+    def get_demo_actions(self):
+        return [
+            "sit on egg",
+            "sit on egg",
+            "sit on egg",
+            "sit on egg",
+            "sit on egg",
+            "feed young bird",
+            "feed young bird",
+            "feed young bird",
+            "feed young bird",
+            "feed young bird",
+        ]

@@ -1,0 +1,7 @@
+    def get_demo_actions(self):
+        return [
+            "connect light bulb (ID: 2) terminal1 to red wire (ID: 3) terminal1",
+            "connect red wire (ID: 3) terminal2 to battery (ID: 6) anode",
+            "connect battery (ID: 6) cathode to black wire (ID: 4) terminal1",
+            "connect black wire (ID: 4) terminal2 to light bulb (ID: 2) terminal2",
+        ]

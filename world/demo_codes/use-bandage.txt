@@ -1,0 +1,10 @@
+    def get_demo_actions(self):
+        demo_actions = [
+            "open bandage box (ID: 8)",
+            "look",
+            "take bandage (ID: 9)",
+            # "put bandage (ID: 9) on left foot (ID: 3)"
+        ]
+        return demo_actions + [
+            "put bandage (ID: 9) on {} (ID: 3)".format(self.useful_info[0])
+        ]

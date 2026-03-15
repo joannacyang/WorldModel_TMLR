@@ -1,0 +1,46 @@
+    def get_demo_actions(self):
+        speed = self.camera.properties["current_shutter_speed"]
+        iso = self.camera.properties["current_iso"]
+        aperture = self.camera.properties["current_aperture"]
+
+        target_aperture = self.useful_info[0]
+        target_speed = self.useful_info[1]
+        target_iso = self.useful_info[2]
+
+        adjust_actions = [
+            "focus {}".format(self.target_food.name),
+            # "rotate aperture clockwise",
+            # "rotate shutter speed anticlockwise",
+            # "rotate iso anticlockwise",
+            # "rotate iso anticlockwise",
+        ]
+        if target_aperture > aperture:
+            adjust_actions += ["rotate aperture clockwise"] * (
+                target_aperture - aperture
+            )
+        elif target_aperture < aperture:
+            adjust_actions += ["rotate aperture anticlockwise"] * (
+                -target_aperture + aperture
+            )
+        else:
+            pass
+        if target_speed > speed:
+            adjust_actions += ["rotate shutter speed clockwise"] * (
+                target_speed - speed
+            )
+        elif target_speed < speed:
+            adjust_actions += ["rotate shutter speed anticlockwise"] * (
+                -target_speed + speed
+            )
+        else:
+            pass
+        if target_iso > iso:
+            adjust_actions += ["rotate iso clockwise"] * (target_iso - iso)
+        elif target_iso < iso:
+            adjust_actions += ["rotate iso anticlockwise"] * (-target_iso + iso)
+        else:
+            pass
+
+        demo_actions = ["take camera (ID: 2)"] + adjust_actions + ["press shutter"]
+
+        return demo_actions

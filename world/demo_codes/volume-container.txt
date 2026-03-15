@@ -1,0 +1,15 @@
+    def get_demo_actions(self):
+        demo_actions = [
+            "take {}".format(self.useful_info[0].name),
+            "put {} in sink (ID: 2)".format(self.useful_info[0].name),
+            "turn on sink (ID: 2)",
+            "turn off sink (ID: 2)",
+            "take {}".format(self.useful_info[0].name),
+            "pour water in {} into {}".format(
+                self.useful_info[0].name, self.useful_info[1].name
+            ),
+            "look",
+            "answer {} mL".format(self.target_water_container_volume),
+        ]
+
+        return demo_actions

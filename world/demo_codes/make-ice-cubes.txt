@@ -1,0 +1,15 @@
+    def get_demo_actions(self):
+        return [
+            "open freezer (ID: 2)",
+            "examine freezer (ID: 2)",
+            "take ice cube tray (ID: 3)",
+            "put ice cube tray (ID: 3) in sink (ID: 4)",
+            "turn on sink (ID: 4)",
+            "turn off sink (ID: 4)",
+            "take ice cube tray (ID: 3)",
+            "put ice cube tray (ID: 3) in freezer (ID: 2)",
+            "close freezer (ID: 2)",
+            "look",
+            "look",
+            "look",
+        ]

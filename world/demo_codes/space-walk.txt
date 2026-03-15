@@ -1,0 +1,10 @@
+    def get_demo_actions(self):
+        return [
+            "put on space suit (ID: 7)",
+            "open inner door (ID: 5)",
+            "move to airlock (ID: 3)",
+            "look",
+            "close inner door (ID: 5)",
+            "open outer door (ID: 6)",
+            "move to outer space (ID: 4)",
+        ]

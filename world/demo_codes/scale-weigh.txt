@@ -1,0 +1,9 @@
+    def get_demo_actions(self):
+        demo_actions = [
+            "take {}".format(self.useful_info[0].name),
+            "put {} on {}".format(self.useful_info[0].name, self.useful_info[1].name),
+            "look",
+            "answer {}g".format(self.target_weight),
+        ]
+
+        return demo_actions

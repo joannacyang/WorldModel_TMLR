@@ -1,0 +1,51 @@
+    def get_demo_actions(self):
+        # print(self.receipt)
+        cooking_actions = [
+            # "take patato (ID: 2)",
+            # "dice patato (ID: 2) with knife (ID: 8)",
+            # "cook patato (ID: 2) in oven (ID: 10)",
+            # "take carrot (ID: 3)",
+            # "cook carrot (ID: 3) in oven (ID: 10)",
+            # "take onion (ID: 4)",
+            # "dice onion (ID: 4) with knife (ID: 8)",
+            # "cook onion (ID: 4) in stove (ID: 9)",
+            # "take cucumber (ID: 5)",
+            # "cook cucumber (ID: 5) in oven (ID: 10)",
+        ]
+
+        for cooking_item in self.receipt:
+            operations = self.receipt[cooking_item]
+            cooking_actions += ["take {}".format(cooking_item.name)]
+            for operation in operations:
+                if operation in ["slice", "dice", "chop"]:
+                    cooking_actions += [
+                        "{} {} with {}".format(
+                            operation, cooking_item.name, self.useful_info["knife"].name
+                        )
+                    ]
+                if operation in ["fry"]:
+                    cooking_actions += [
+                        "cook {} in {}".format(
+                            cooking_item.name, self.useful_info["stove"].name
+                        )
+                    ]
+                if operation in ["roast"]:
+                    cooking_actions += [
+                        "cook {} in {}".format(
+                            cooking_item.name, self.useful_info["oven"].name
+                        )
+                    ]
+
+        demo_actions = (
+            [
+                "take {}".format(self.useful_info["cook_book"].name),
+                "read {}".format(self.useful_info["cook_book"].name),
+                "take {}".format(self.useful_info["knife"].name),
+            ]
+            + cooking_actions
+            + [
+                "prepare meal",
+            ]
+        )
+
+        return demo_actions

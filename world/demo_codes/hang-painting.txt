@@ -1,0 +1,13 @@
+    def get_demo_actions(self):
+        # print()
+        demo_actions = [
+            "take nail (ID: 7)",
+            "take hammer (ID: 6)",
+            "hammer nail (ID: 7) on {} with hammer (ID: 6)".format(
+                self.target_wall.name
+            ),
+            "take {}".format(self.target_picture.name),
+            "hang {} on nail (ID: 7)".format(self.target_picture.name),
+        ]
+
+        return demo_actions

@@ -1,0 +1,22 @@
+    def get_demo_actions(self):
+        # print()
+        take_objects = []
+
+        put_objects = []
+        for food in self.useful_info:
+            take_objects.append("take {}".format(food.name))
+            put_objects.append("put {} in fridge (ID: 2)".format(food.name))
+
+        demo_actions = (
+            take_objects
+            + ["open fridge (ID: 2)"]
+            + put_objects
+            + [
+                "close fridge (ID: 2)",
+                "look",
+                "look",
+                "look",
+            ]
+        )
+
+        return demo_actions

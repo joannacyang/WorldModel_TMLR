@@ -1,0 +1,16 @@
+    def get_demo_actions(self):
+        return [
+            "take shovel (ID: 2)",
+            "dig with shovel (ID: 2)",
+            "take tree (ID: 8)",
+            "look",
+            "put tree (ID: 8) in hole (ID: 9)",
+            "inventory",
+            "put soil (ID: 10) in hole (ID: 9)",
+            "take jug (ID: 7)",
+            "put jug (ID: 7) in sink (ID: 5)",
+            "turn on sink (ID: 5)",
+            "turn off sink (ID: 5)",
+            "take jug (ID: 7)",
+            "pour water in jug (ID: 7) into soil (ID: 10)",
+        ]

@@ -1,0 +1,9 @@
+    def get_demo_actions(self):
+        return [
+            "use sunscreen (ID: 4)",
+            "move to beach (ID: 3)",
+            "look",
+            "take ball (ID: 8)",
+            "move to house (ID: 2)",
+            "put ball (ID: 8) in box (ID: 5)",
+        ]

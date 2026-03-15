@@ -1,0 +1,12 @@
+    def get_demo_actions(self):
+        return [
+            "take axe (ID: 4)",
+            "use axe (ID: 4) on tree (ID: 5)",
+            "look",
+            "use axe (ID: 4) on chopped down tree (ID: 5)",
+            "look",
+            "take firewood (ID: 5)",
+            "put firewood (ID: 5) in fire pit (ID: 2)",
+            "take match (ID: 3)",
+            "use match (ID: 3) on firewood (ID: 5)",
+        ]

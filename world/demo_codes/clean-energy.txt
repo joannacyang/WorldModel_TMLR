@@ -1,0 +1,15 @@
+    def get_demo_actions(self):
+        demo_actions = []
+        change_station = {
+            "sun": "solar farm",
+            "water": "hydroelectric power station",
+            "wind": "wind farm",
+        }
+        for region in self.regions:
+            demo_actions.append(
+                "change {} to {}".format(
+                    region.name, change_station[region.properties["resource"]]
+                )
+            )
+
+        return demo_actions

@@ -1,0 +1,16 @@
+    def get_demo_actions(self):
+        demo_actions = [
+            "connect light bulb (ID: 2) terminal1 to red wire (ID: 3) terminal1",
+            "connect red wire (ID: 3) terminal2 to battery (ID: 6) anode",
+            "connect battery (ID: 6) cathode to black wire (ID: 4) terminal1",
+            "connect black wire (ID: 4) terminal2 to fork (ID: 7) terminal1",
+            "connect fork (ID: 7) terminal2 to blue wire (ID: 5) terminal1",
+            "connect blue wire (ID: 5) terminal2 to light bulb (ID: 2) terminal2",
+            "look",
+            "take fork (ID: 7)",
+        ]
+        if self.useful_info[0]:
+            return demo_actions + ["put fork (ID: 7) in red box (ID: 8)"]
+
+        else:
+            return demo_actions + ["put fork (ID: 7) in black box (ID: 9)"]

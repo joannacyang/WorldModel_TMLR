@@ -1,0 +1,15 @@
+    def get_demo_actions(self):
+        demo_actions = [
+            "take measuring cup (ID: 4)",
+            "put measuring cup (ID: 4) in sink (ID: 2)",
+            "turn on sink (ID: 2)",
+            "turn off sink (ID: 2)",
+            "take measuring cup (ID: 4)",
+            "examine measuring cup (ID: 4)",
+            "take stone (ID: 3)",
+            "put stone (ID: 3) in measuring cup (ID: 4)",
+            "examine measuring cup (ID: 4)",
+            "answer {}".format(self.answer_volume),
+        ]
+
+        return demo_actions

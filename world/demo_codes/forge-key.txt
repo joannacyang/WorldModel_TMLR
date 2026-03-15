@@ -1,0 +1,19 @@
+    def get_demo_actions(self):
+        demo_actions = [
+            "take copper ingot (ID: 4)",
+            "put copper ingot (ID: 4) in foundry (ID: 3)",
+            "turn on foundry (ID: 3)",
+            "look",
+            "look",
+            "look",
+            "look",
+            "look",
+            "look",
+            "pour copper (liquid) (ID: 4) into key mold (ID: 6)",
+            "look",
+            "look",
+            "take copper key (ID: 4)",
+            "open door (ID: 5) with copper key (ID: 4)",
+        ]
+
+        return demo_actions

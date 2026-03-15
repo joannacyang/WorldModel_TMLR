@@ -1,0 +1,16 @@
+    def get_demo_actions(self):
+        demo_actions = [
+            "take {}".format(self.useful_info[1].name),
+            "measure the length of the {} with the {}".format(
+                self.useful_info[0].name, self.useful_info[1].name
+            ),
+            "measure the width of the {} with the {}".format(
+                self.useful_info[0].name, self.useful_info[1].name
+            ),
+            "measure the height of the {} with the {}".format(
+                self.useful_info[0].name, self.useful_info[1].name
+            ),
+            "answer {} cubic cm".format(self.target_box_volume),
+        ]
+
+        return demo_actions

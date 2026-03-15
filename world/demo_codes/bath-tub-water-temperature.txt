@@ -1,0 +1,40 @@
+    def get_demo_actions(self):
+        # print()
+
+        water_temp = self.useful_info[0]
+
+        cooling = [
+            "turn on cold tap (ID: 5)",
+            "turn off cold tap (ID: 5)",
+            "use thermometer (ID: 6) on water (ID: 3)",
+        ]
+        hotting = [
+            "turn on hot tap (ID: 4)",
+            "turn off hot tap (ID: 4)",
+            "use thermometer (ID: 6) on water (ID: 3)",
+        ]
+
+        if water_temp > 40:
+            cooling_times = (water_temp - 35) // 5
+            water_actions = cooling * cooling_times
+
+        elif water_temp < 35:
+            hotting_times = (40 - water_temp) // 5
+            water_actions = hotting * hotting_times
+        else:
+            water_actions = []
+
+        demo_actions = (
+            [
+                "take thermometer (ID: 6)",
+                "use thermometer (ID: 6) on water (ID: 3)",
+                # "turn on cold tap (ID: 5)",
+                # "turn off cold tap (ID: 5)",
+                # "use thermometer (ID: 6) on water (ID: 3)",
+                # "bath"
+            ]
+            + water_actions
+            + ["bath"]
+        )
+
+        return demo_actions

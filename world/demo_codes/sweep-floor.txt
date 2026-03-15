@@ -1,0 +1,17 @@
+    def get_demo_actions(self):
+        sweep_actions = []
+        for garbage in self.useful_info:
+            sweep_actions.append(
+                "sweep {} to dustpan (ID: 3) with broom (ID: 2)".format(garbage.name)
+            )
+
+        demo_actions = (
+            ["take broom (ID: 2)", "take dustpan (ID: 3)"]
+            + sweep_actions
+            + [
+                "open garbage can (ID: 4)",
+                "dump dustpan (ID: 3) to garbage can (ID: 4)",
+            ]
+        )
+
+        return demo_actions

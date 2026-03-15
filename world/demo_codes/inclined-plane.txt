@@ -1,0 +1,39 @@
+    def get_demo_actions(self):
+        look_table = {
+            0.5: ["look"] * 5,
+            1: ["look"] * 5,
+            1.5: ["look"] * 5,
+            2: ["look"] * 5,
+        }
+
+        a1 = self.useful_info[0][0]
+        a2 = self.useful_info[0][1]
+        a1_look = look_table[a1]
+        a2_look = look_table[a2]
+
+        demo_actions = (
+            [
+                "take stopwatch (ID: 5)",
+                "take block (ID: 4)",
+                "put block (ID: 4) on inclined plane 1 (ID: 2)",
+                "activate stopwatch (ID: 5)",
+            ]
+            + a1_look
+            + [
+                "deactivate stopwatch (ID: 5)",
+                "examine stopwatch (ID: 5)",
+                "reset stopwatch (ID: 5)",
+                "take block (ID: 4)",
+                "put block (ID: 4) on inclined plane 2 (ID: 3)",
+                "activate stopwatch (ID: 5)",
+            ]
+            + a2_look
+            + [
+                "deactivate stopwatch (ID: 5)",
+                "examine stopwatch (ID: 5)",
+            ]
+        )
+        if a1 > a2:
+            return demo_actions + ["focus on inclined plane 2 (ID: 3)"]
+        else:
+            return demo_actions + ["focus on inclined plane 1 (ID: 2)"]

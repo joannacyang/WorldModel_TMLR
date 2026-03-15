@@ -1,0 +1,7 @@
+    def get_demo_actions(self):
+        demo_actions = [
+            "take thermometer (ID: 4)",
+            "use thermometer (ID: 4) on water (ID: 3)",
+            "answer {} Celsius degree".format(self.water_temperature),
+        ]
+        return demo_actions

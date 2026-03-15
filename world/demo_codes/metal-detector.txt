@@ -1,0 +1,47 @@
+    def get_demo_actions(self):
+        agent_init_position = self.useful_info[0]
+        targe_position = self.useful_info[1]
+
+        direction = (
+            targe_position[0] - agent_init_position[0],
+            targe_position[1] - agent_init_position[1],
+        )
+        h_dir_list = (
+            ["south"] * direction[0]
+            if direction[0] > 0
+            else ["north"] * (-direction[0])
+        )
+        v_dir_list = (
+            ["east"] * direction[1] if direction[1] > 0 else ["west"] * (-direction[1])
+        )
+
+        dir_list = h_dir_list + v_dir_list
+        self.random.shuffle(dir_list)
+
+        detect_actions = [
+            "detect with metal detector (ID: 15)",
+            # "move north",
+            # "detect with metal detector (ID: 15)",
+            # "move north",
+            # "detect with metal detector (ID: 15)",
+            # "move east",
+            # "detect with metal detector (ID: 15)",
+            # "move south",
+            # "detect with metal detector (ID: 15)",
+            # "move south",
+            # "detect with metal detector (ID: 15)",
+            # "move west",
+            # "move west",
+            # "detect with metal detector (ID: 15)",
+        ]
+        for dir_step in dir_list:
+            detect_actions.append("move {}".format(dir_step))
+            detect_actions.append("detect with metal detector (ID: 15)")
+
+        demo_actions = (
+            ["take metal detector (ID: 15)", "take shovel (ID: 16)"]
+            + detect_actions
+            + ["look", "dig with shovel (ID: 16)", "look", "take metal case (ID: 11)"]
+        )
+
+        return demo_actions

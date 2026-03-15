@@ -1,0 +1,54 @@
+    def get_demo_actions(self):
+        washing, drying, busketing = [], [], []
+
+        for cloth in self.dirty_clothes:
+            washing += [
+                "take {}".format(cloth.name),
+                "put {} in washing machine (ID: 2)".format(cloth.name),
+            ]
+
+            drying += [
+                "take {}".format(cloth.name),
+                "put {} in dryer (ID: 3)".format(cloth.name),
+            ]
+
+            busketing += [
+                "take {}".format(cloth.name),
+                "put {} in basket (ID: 12)".format(cloth.name),
+            ]
+
+        for cloth in self.clean_clothes:
+            busketing += [
+                "take {}".format(cloth.name),
+                "put {} in basket (ID: 12)".format(cloth.name),
+            ]
+
+        demo_actions = (
+            [
+                "open washing machine (ID: 2)",
+            ]
+            + washing
+            + [
+                "use bottle of detergent (ID: 4) on washing machine (ID: 2)",
+                "close washing machine (ID: 2)",
+                "turn on washing machine (ID: 2)",
+                "wait",
+                "look",
+                "look",
+                "open washing machine (ID: 2)",
+                "open dryer (ID: 3)",
+            ]
+            + drying
+            + [
+                "close dryer (ID: 3)",
+                "turn on dryer (ID: 3)",
+                "wait",
+                "look",
+                "look",
+                "open dryer (ID: 3)",
+                "take skirt (ID: 5)",
+            ]
+            + busketing
+        )
+
+        return demo_actions

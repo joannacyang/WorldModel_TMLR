@@ -1,0 +1,14 @@
+    def get_demo_actions(self):
+        demo_actions = [
+            "set multimeter (ID: 2) to resistance mode",
+            "connect multimeter (ID: 2) terminal1 to resistor {} (ID: 3) terminal1".format(
+                self.target_resistor_id
+            ),
+            "connect multimeter (ID: 2) terminal2 to resistor {} (ID: 3) terminal2".format(
+                self.target_resistor_id
+            ),
+            "look",
+            "answer {} ohm".format(self.target_resistance),
+        ]
+
+        return demo_actions
